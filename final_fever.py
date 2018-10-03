@@ -509,7 +509,7 @@ def experiment_sandeep(
     print("model loaded")
     result = loaded_model.score(X_assess, y_assess)
     predictions = loaded_model.predict(X_assess)
-    print(predictions)
+
     print("model result")
     if verbose:
         print(classification_report(y_assess, predictions, digits=3))

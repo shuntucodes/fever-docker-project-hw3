@@ -69,35 +69,35 @@ _ = fever.experiment_sandeep(
     assess_reader=fever.SampledSandeepReader(samp_percentage=percentage),
     random_state=42)
 
-
-
-def word_cross_product_phi(claim, evidence):
-    """Basis for cross-product features. This tends to produce pretty
-    dense representations.
-
-    Parameters
-    ----------
-    claim : a string
-    evidence : a list of sentences
-
-    Returns
-    -------
-    defaultdict
-        Maps each (w1, w2) in the cross-product of words in claim and
-        evidence to its count. This is a multi-set cross-product
-        (repetitions matter).
-
-    """
-    sents = []
-    for sent in evidence:
-        sents.extend(utils.process_sent(sent))
-    return Counter([(w1, w2) for w1, w2 in product(utils.process_text(claim), sents)])
-
-
-_ = fever.experiment_sandeep(
-    train_reader=fever.SampledTrainReader(samp_percentage=percentage),
-    phi=word_cross_product_phi,
-    # oracle=oracle,
-    train_func=fit_maxent_classifier,
-    assess_reader=fever.SampledSandeepReader(samp_percentage=percentage),
-    random_state=42)
+#
+#
+# def word_cross_product_phi(claim, evidence):
+#     """Basis for cross-product features. This tends to produce pretty
+#     dense representations.
+#
+#     Parameters
+#     ----------
+#     claim : a string
+#     evidence : a list of sentences
+#
+#     Returns
+#     -------
+#     defaultdict
+#         Maps each (w1, w2) in the cross-product of words in claim and
+#         evidence to its count. This is a multi-set cross-product
+#         (repetitions matter).
+#
+#     """
+#     sents = []
+#     for sent in evidence:
+#         sents.extend(utils.process_sent(sent))
+#     return Counter([(w1, w2) for w1, w2 in product(utils.process_text(claim), sents)])
+#
+#
+# _ = fever.experiment_sandeep(
+#     train_reader=fever.SampledTrainReader(samp_percentage=percentage),
+#     phi=word_cross_product_phi,
+#     # oracle=oracle,
+#     train_func=fit_maxent_classifier,
+#     assess_reader=fever.SampledSandeepReader(samp_percentage=percentage),
+#     random_state=42)
