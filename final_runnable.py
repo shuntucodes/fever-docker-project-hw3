@@ -58,23 +58,40 @@ def word_overlap_phi(claim, evidence):
         sents.extend(utils.process_sent(sent))
     overlap = set([w1 for w1 in utils.process_text(claim) if w1 in sents])
     return Counter(overlap)
+# print("Evaluation for Large file which has overlaps with train in bi-grams")
+# _ = fever.experiment_sandeep(
+#     train_reader=fever.SampledTrainReader(samp_percentage=percentage),
+#     phi=word_overlap_phi,
+#     # oracle=oracle,
+#     train_func=fit_maxent_classifier,
+#     assess_reader=fever.SampledSandeepReader(samp_percentage=percentage),
+#     random_state=42)
 
-
-
+print("Evaluation for testing file small file which has overlaps with train in bi-grams")
 _ = fever.experiment_sandeep(
     train_reader=fever.SampledTrainReader(samp_percentage=percentage),
     phi=word_overlap_phi,
     # oracle=oracle,
     train_func=fit_maxent_classifier,
-    assess_reader=fever.SampledSandeepReader(samp_percentage=percentage),
+    assess_reader=fever.SampledSandeepReader_2(samp_percentage=percentage),
     random_state=42)
+
+# print("Evaluation for testing file small file which has overlaps with train in bi-grams")
+# _ = fever.experiment_sandeep(
+#     train_reader=fever.SampledTrainReader(samp_percentage=percentage),
+#     phi=word_overlap_phi,
+#     # oracle=oracle,
+#     train_func=fit_maxent_classifier,
+#     assess_reader=fever.SampledSandeepReader_3(samp_percentage=percentage),
+#     random_state=42)
+
+
 
 #
 #
-# def word_cross_product_phi(claim, evidence):
-#     """Basis for cross-product features. This tends to produce pretty
-#     dense representations.
-#
+def word_cross_product_phi(claim, evidence):
+    """Basis for cross-product features. This tends to produce pretty
+    dense representations.
 #     Parameters
 #     ----------
 #     claim : a string
@@ -88,10 +105,12 @@ _ = fever.experiment_sandeep(
 #         (repetitions matter).
 #
 #     """
-#     sents = []
-#     for sent in evidence:
-#         sents.extend(utils.process_sent(sent))
-#     return Counter([(w1, w2) for w1, w2 in product(utils.process_text(claim), sents)])
+    local_sents = []
+    for sent in evidence:
+
+        local_sents.extend(utils.process_sent(sent))
+        print("Sent: " + str(local_sents))
+    return Counter([(w1, w2) for w1, w2 in product(utils.process_text(claim), local_sents)])
 #
 #
 # _ = fever.experiment_sandeep(

@@ -206,6 +206,21 @@ class SampledSandeepReader(Reader):
         src_filename="dev_examples.jsonl"
         super().__init__(src_filename, **kwargs)
 
+class SampledSandeepReader_2(Reader):
+    def __init__(self, fever_home=FEVER_HOME, **kwargs):
+        # src_filename = os.path.join(
+        #     fever_home, "train_sampled.jsonl")
+        src_filename="dev_yoon_small_sents.jsonl"
+        super().__init__(src_filename, **kwargs)
+
+class SampledSandeepReader_3(Reader):
+    def __init__(self, fever_home=FEVER_HOME, **kwargs):
+        # src_filename = os.path.join(
+        #     fever_home, "train_sampled.jsonl")
+        src_filename="dev_with_sents_yoon.jsonl"
+        super().__init__(src_filename, **kwargs)
+
+
 
 class SampledDevReader(Reader):
     def __init__(self, fever_home=FEVER_HOME, **kwargs):
