@@ -220,6 +220,13 @@ class SampledSandeepReader_3(Reader):
         src_filename="dev_with_sents_yoon.jsonl"
         super().__init__(src_filename, **kwargs)
 
+class SampledSandeepReader_4(Reader):
+    def __init__(self, fever_home=FEVER_HOME, **kwargs):
+        # src_filename = os.path.join(
+        #     fever_home, "train_sampled.jsonl")
+        src_filename="dev_yoon_sents_only_overlap.jsonl"
+        super().__init__(src_filename, **kwargs)
+
 
 
 class SampledDevReader(Reader):
@@ -634,7 +641,7 @@ def experiment(
     # Report:
     # filename = 'finalized_model.sav'
     # pickle.dump(mod, open(filename, 'wb'))
-    loaded_model = pickle.load(open('finalized_model.sav', 'rb'))
+    loaded_model = pickle.load(open('finalized_model_old.sav', 'rb'))
     print("model loaded")
     result = loaded_model.score(X_assess, y_assess)
     predictions = loaded_model.predict(X_assess)
