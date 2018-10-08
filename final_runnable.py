@@ -64,7 +64,7 @@ _ = fever.experiment_sandeep(
     phi=word_overlap_phi,
     # oracle=oracle,
     train_func=fit_maxent_classifier,
-    assess_reader=fever.SampledSandeepReader(samp_percentage=percentage),
+    assess_reader=fever.SampledSandeepReader_3(samp_percentage=percentage),
     random_state=42)
 
 print("Evaluation for testing file small file which has overlaps with train in bi-grams")
