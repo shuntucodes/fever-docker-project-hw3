@@ -58,14 +58,14 @@ def word_overlap_phi(claim, evidence):
         sents.extend(utils.process_sent(sent))
     overlap = set([w1 for w1 in utils.process_text(claim) if w1 in sents])
     return Counter(overlap)
-# print("Evaluation for Large file which has overlaps with train in bi-grams")
-# _ = fever.experiment_sandeep(
-#     train_reader=fever.SampledTrainReader(samp_percentage=percentage),
-#     phi=word_overlap_phi,
-#     # oracle=oracle,
-#     train_func=fit_maxent_classifier,
-#     assess_reader=fever.SampledSandeepReader(samp_percentage=percentage),
-#     random_state=42)
+print("Evaluation for Large file which has overlaps with train in bi-grams")
+_ = fever.experiment_sandeep(
+    train_reader=fever.SampledTrainReader(samp_percentage=percentage),
+    phi=word_overlap_phi,
+    # oracle=oracle,
+    train_func=fit_maxent_classifier,
+    assess_reader=fever.SampledSandeepReader(samp_percentage=percentage),
+    random_state=42)
 
 print("Evaluation for testing file small file which has overlaps with train in bi-grams")
 _ = fever.experiment_sandeep(
