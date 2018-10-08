@@ -57,7 +57,7 @@ NOT ENOUGH INFO      0.362     0.326     0.343      3333
 
     avg / total      0.375     0.346     0.274      9999
 
-Evaluation for testing file small file which has NO overlaps with train in bi-grams
+Evaluation for testing file small file which has overlaps with train in bi-grams
 In assessemt
 Reading from dataset: 100%|██████████| 4920/4920 [06:21<00:00, 12.89examples/s]
 model loaded
@@ -71,7 +71,7 @@ NOT ENOUGH INFO      0.417     0.347     0.379      1959
     avg / total      0.366     0.375     0.319      4920
 
 
-Evaluation for testing file small file which has overlaps with train in bi-grams
+Evaluation for testing file small file which has NO overlaps with train in bi-grams
 In assessemt
 Reading from dataset: 100%|██████████| 5079/5079 [03:36<00:00, 23.48examples/s]
 model loaded
