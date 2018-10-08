@@ -22,11 +22,14 @@ This project consists of the following important files:
 
 4) vectorizer.pk: Pre-computer vectorizer
 
-5) dev_with_sents_yoon.jsonl: The original dev file taken from the project and converted into a new file of claims and evidence sentences for 9,999 records.
+5) dev_with_sents_yoon.jsonl: The original dev file taken from the project and converted into a new file of claims and evidence sentences for 9,999 records. This data performs medium with 27% precision score.
 
-6) dev_yoon_small_sents.jsonl: We removed all the claims from the dataset that did not meet our threshold of bigrams and added to this file. This file consists of 4920 records.
+6) dev_yoon_sents_only_overlap.jsonl: We removed all the claims from the dataset that did not meet our threshold of bigrams and added to this file. This file consists of 5079 records. Pardon the wrong naming convention, it is exactly opposite of what I am calling it here by mistake.This data performs best with 24% precision score.
 
-7) utils.py: Original file from the forked project, no changes made. This file contains important helper functions.
+7) dev_with_sents_yoon.jsonl: We added all the claims from the dataset that did met our threshold of bigrams and added to this file. This file consists of 4920 records. Pardon the wrong naming convention, it is exactly opposite of what I am calling it here by mistake. This data performs best with 31% precision score.
+
+
+8) utils.py: Original file from the forked project, no changes made. This file contains important helper functions.
 
 
 
